@@ -1,44 +1,37 @@
 // Please tidy this file up until line 43 where it says "⛔ STOP"
 
-/* 						👀 Expected output:
+/*
 
 							Bart
 							Lisa
 							Maggie
 							Result: ✅ SUCCESS
+							
 */
+const bart = { name: "Bart", age: 12 };
+const lisa = { name: "Lisa", age: 10 };
 
-// Declare variables
-var x = { name: 'Bart', age: 12 };
-var y = { name: 'Lisa', age: 10 };
+const peopleArray = [bart, lisa, { name: "Maggie", age: 1 }];
 
-// put into array
-var a = [x, y, { name: 'Maggie', age: 1 }];
-
-// create the function
-function p(p) {
-	console.log(p.name);
+function printName(person) {
+  console.log(person.name);
 }
 
-// show all the names first
-p(x);
-p(y);
-p(a[2]);
+printName(bart);
+printName(lisa);
+printName(peopleArray[2]);
 
-var result = 0;
+let result = 0;
 
-function cmpInpt(p) {
-	// check the input matches
-	if (p.age == getInputAge(p)) {
-		// add to result
-		result += 1; // increment for each correctly input age
-	}
+function compareAge(person) {
+  if (person.age === getInputAge(person)) {
+    result += 1;
+  }
 }
 
-// check all the inputs match
-cmpInpt(x);
-cmpInpt(y);
-cmpInpt(a[2]);
+compareAge(bart);
+compareAge(lisa);
+compareAge(peopleArray[2]);
 
 // ⛔🚫 STOP TIDYING! You're done ✅
 
@@ -47,17 +40,17 @@ cmpInpt(a[2]);
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 
 // PRINT SUCCESS IF EXACTLY 2 INPUTS MATCH
-console.log(`Result: ${result === 2 ? '✅ SUCCESS' : '❌ FAIL'}`);
+console.log(`Result: ${result === 2 ? "✅ SUCCESS" : "❌ FAIL"}`);
 
 function getInputAge(person) {
-	switch (person.name) {
-		case 'Bart':
-			return 12;
-		case 'Lisa':
-			return 10;
-		case 'Maggie':
-			return '1'; // she's a baby, she's allowed to get this type wrong!
-		default:
-			return 0;
-	}
+  switch (person.name) {
+    case "Bart":
+      return 12;
+    case "Lisa":
+      return 10;
+    case "Maggie":
+      return "1"; // she's a baby, she's allowed to get this type wrong!
+    default:
+      return 0;
+  }
 }
